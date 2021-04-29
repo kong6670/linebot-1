@@ -12,14 +12,14 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 
    $message = $arrayJson['events'][0]['message']['text'];
-#ตัวอย่าง Message Type "Text"
+//ตัวอย่าง Message Type "Text"
     if($message == "test"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    #ตัวอย่าง Message Type "Sticker"
+    //ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "sticker";
@@ -27,7 +27,7 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
         $arrayPostData['messages'][0]['stickerId'] = "46";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    #ตัวอย่าง Message Type "Image"
+    //ตัวอย่าง Message Type "Image"
     else if($message == "รูปน้องแมว"){
         $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -36,7 +36,7 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
         $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
         replyMsg($arrayHeader,$arrayPostData);
     }
-    #ตัวอย่าง Message Type "Location"
+    //ตัวอย่าง Message Type "Location"
     else if($message == "พิกัดสยามพารากอน"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
@@ -46,7 +46,7 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
         $arrayPostData['messages'][0]['longitude'] = "100.532752";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
+    //ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
     else if($message == "ลาก่อน"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
